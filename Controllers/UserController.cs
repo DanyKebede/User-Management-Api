@@ -22,7 +22,19 @@ public class UserController : ControllerBase
         var users = await _user.GetAllUsers();
         return Ok(users);
     }
-
+    
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetUserById([FromRoute] Guid id)
+    {
+        var user = await _user.GetUserById(id);
+        if (user == null)
+        {
+            return NotFound();
+        }
+        
+        return Ok(user);
+    }
+    
     [HttpPost]
     public async Task<IActionResult> AddUser([FromBody] UserCreateRequest request)
     {

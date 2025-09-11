@@ -6,5 +6,6 @@ public interface IUser
 {
     public Task<ICollection<User>> GetAllUsers();
 
+    public Task<User?> GetUserById(Guid id);
     public Task<User> CreateUser(string firstName, string lastName);
 }

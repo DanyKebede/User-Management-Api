@@ -21,6 +21,11 @@ public class UserService : IUser
         return users;
     }
 
+    public Task<User?> GetUserById(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<User> CreateUser(string firstName, string lastName)
     {
         var newUser = new User()
